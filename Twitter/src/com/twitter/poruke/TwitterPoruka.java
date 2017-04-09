@@ -34,10 +34,11 @@ public class TwitterPoruka {
 	/**
 	 * Postavalja novi nadimak korisnika
 	 * @param korisnik novi nadimak korisnika
-	 * @throws java.lang.RuntimeException Ako je unet nadimak null
+	 * @throws java.lang.RuntimeException Ako je unet nadimak null,
+	 * ili ako je proslednjen prazan String
 	 */
 	public void setKorisnik(String korisnik) {
-		if (korisnik==null || !korisnik.isEmpty())
+		if (korisnik==null || korisnik.isEmpty())
 			throw new RuntimeException("Ime korisnika mora biti uneto");
 		this.korisnik = korisnik;
 	}
@@ -47,18 +48,18 @@ public class TwitterPoruka {
 	 * @return sadrzaj poruke kao String
 	 */
 	public String getPoruka() {
-		return "poruka";
+		return this.poruka;
 	}
 	
 	/**
 	 * Pstavlja novu poruku korisnika
 	 * @param poruka sadrzaj nove poruke
-	 * @throws java.lang.RuntimeException Ako je poruka null 
-	 * ili ako je poruka String kraci od 140
+	 * @throws java.lang.RuntimeException Ako je poruka null, 
+	 * ako je prosledjen prazan Stirng ili ako je poruka String duzi od 140
 	 */
 	public void setPoruka(String poruka) {
-		if (this.poruka==null || this.poruka == new String("") ||
-				this.poruka.length()>140)
+		if (poruka==null || poruka.isEmpty() ||
+				poruka.length()>140)
 			throw new RuntimeException(
 	"Poruka mora biti uneta i mora imati najvise 140 znakova");
 		this.poruka = poruka;
