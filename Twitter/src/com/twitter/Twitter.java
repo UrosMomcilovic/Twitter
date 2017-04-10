@@ -2,14 +2,31 @@ package com.twitter;
 
 import java.util.LinkedList;
 import com.twitter.poruke.TwitterPoruka;
-
+/**
+ * Klasa Twitter sadrzi listu svih poruka
+ * @author Uros Momcilovic
+ * @version 1.0
+ *
+ */
 public class Twitter {
+	/**
+	 * Lista svih poruka
+	 */
 	private LinkedList<TwitterPoruka> poruke = new LinkedList<TwitterPoruka>();
 	
+	/**
+	 * Vraca listu svih poruka	
+	 * @return sve poruke kao ulancanu listu
+	 */
 	public LinkedList<TwitterPoruka> vratiSvePoruke(){
 		return poruke;
 	}
 	
+	/**
+	 * Izvrsava unos poruke nekog korisnika u listu poruka
+	 * @param korisnik nadimak korisnika
+	 * @param poruka poruka korisnika
+	 */
 	public void unesi(String korisnik, String poruka) {
 		//Pravi se nova poruka i puni podacima.
 		TwitterPoruka tp = new TwitterPoruka();
@@ -18,6 +35,15 @@ public class Twitter {
 		//Poruka se unosi u listu na kraj
 		poruke.addLast(tp);
 	}
+	
+	/**
+	 * Pretrazuje listu poruka i vraca sve u kojima postoji tag koji je
+	 * dat kao parametar. Max broj poruka se ogranicava brojem koji se 
+	 * unosi kao parametar.
+	 * @param maxBroj maksimalan povratni broj poruka
+	 * @param tag tag koji se trazi u porukama
+	 * @return vraca niz poruka koji sadrze dati trag
+	 */
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
 		if (tag==null || tag.isEmpty())
 		throw new RuntimeException("Morate uneti tag");
