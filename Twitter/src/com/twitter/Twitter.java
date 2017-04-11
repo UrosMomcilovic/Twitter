@@ -42,6 +42,8 @@ public class Twitter {
 	 * unosi kao parametar.
 	 * @param maxBroj maksimalan povratni broj poruka
 	 * @param tag tag koji se trazi u porukama
+	 * @throws java.lang.RuntimeException ako je uneti tag null
+	 * ili prazan string
 	 * @return vraca niz poruka koji sadrze dati trag
 	 */
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
