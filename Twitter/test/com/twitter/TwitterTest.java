@@ -35,6 +35,23 @@ public class TwitterTest {
 		
 	}
 	
+	@Test 
+	public void testVratiPoruke() {
+		assertArrayEquals(null, t.vratiPoruke(2, "cao"));
+	}
+	
+	@Test 
+	public void testVratiPoruke2() {
+		t.unesi("King", "cao druze");
+		t.unesi("Master", "cao prijatelju");
+		
+		String [] niz = new String [3];
+		niz [0] = "cao druze";
+		niz [1] = "cao prijatelju";
+		
+		assertArrayEquals(niz, t.vratiPoruke(-3, "cao"));
+	}
+
 	@Test (expected = java.lang.RuntimeException.class)
 	public void testVratiPorukeNull() {
 		t.vratiPoruke(2, null);
