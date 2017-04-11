@@ -46,7 +46,6 @@ public class TwitterPorukaTest {
 		t.setKorisnik("");
 		
 	}
-
 	
 	@Test
 	public void testSetPoruka() {
@@ -66,6 +65,13 @@ public class TwitterPorukaTest {
 	public void testSetPorukaEmpty() {
 		
 		t.setPoruka("");
+		
+	}
+	
+	@Test (expected = java.lang.RuntimeException.class)
+	public void testSetPorukaBigString() {
+		
+		t.setPoruka("Java is a general-purpose computer programming language that is concurrent, class-based, object-oriented,[14] and specifically designed to have as few implementation dependencies as possible.");
 		
 	}
 
